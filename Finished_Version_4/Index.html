@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="w3-content" style="max-width:1920px; max-height:1080px">
+  <img class="mySlides w3-image w3-animate-fading" src="img1.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img1.jpg" style="width:100%">
+  
+  <img class="mySlides w3-image w3-animate-fading" src="img2.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img2.jpg" style="width:100%">
+  
+  <img class="mySlides w3-image w3-animate-fading" src="img3.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img3.jpg" style="width:100%">
+  
+  <img class="mySlides w3-image w3-animate-fading" src="img4.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img4.jpg" style="width:100">
+  
+  <img class="mySlides w3-image w3-animate-fading" src="img5.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img5.jpg" style="width:100">
+</div>
+
+<script>
+var myIndex = 0;
+var myNextIndex = 1;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  
+  // skjul alle bileder
+  x[myNextIndex].style.display = "block";    
+  for (i = 0; i < x.length; i++) {
+    if (i!=myNextIndex && i!=myIndex)
+	{
+    x[i].style.display = "none";
+	}	
+  }
+  
+  //x[myIndex].style.display = "block";   
+  
+  myIndex++;
+  myNextIndex++;
+
+  if (myIndex > x.length-1) {myIndex = 0}
+  if (myNextIndex > x.length-1) {myNextIndex = 0}
+  
+  setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+
+</body>
+</html>
