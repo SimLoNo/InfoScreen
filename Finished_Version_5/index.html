@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="w3a.css">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+<body>
+  <!--
+  Below is the div with the images for the infoscreen. To add an image, simply copy paste 2 subsequent lines, for both fading in, and zoom functions. If you only want 1 function for the image, simply copy-paste the function you want.
+  When adding or changing images, remember to change the name in the src="" tag, to the wanted image, including filetype.
+  If you want an image to have a longer, or shorter showingtime, simply add an id="x" inside the line, and remember to add that id in if, else if, and else, in the bottom.
+ -->
+<div class="w3-content" style="max-width:1920px; max-height:1080px">
+
+  <img class="mySlides w3-image w3-animate-fading" src="img1.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img1.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="img2.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img2.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="img3.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="img3.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="afstand.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="afstand.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="Mobil.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="Mobil.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="mask.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="mask.jpg" style="width:100%">
+
+  <img class="mySlides w3-image w3-animate-fading" src="wash.jpg" style="width:100%">
+  <img class="mySlides w3-image w3-animate-zoom" src="wash.jpg" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+var myNextIndex = 1;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+
+  // skjul alle bileder
+  x[myNextIndex].style.display = "block";
+  for (i = 0; i < x.length; i++) {
+    if (i!=myNextIndex && i!=myIndex)
+	{
+    x[i].style.display = "none";
+	}
+  }
+
+  //x[myIndex].style.display = "block";
+
+  myIndex++;
+  myNextIndex++;
+  if (myIndex > x.length-1) {myIndex = 0}
+  if (myNextIndex > x.length-1) {myNextIndex = 0}
+
+// Tells the infoscreen to wait with changing images, depending, if the image has an id.
+// To add more options for wait time, simply cope-paste the else if section, and put another id == x. And change the time in the setTimeout to the prefered waiting in miliseconds
+// the "if" always needs to be on the top, and the "else" needs to be on the bottom.
+  if(x[myIndex].id == 1) // This will run if the image has an id of 1
+  {
+    setTimeout(carousel, 15000);
+  }
+  // To add more wait-time options, copy from below this line.
+  else if(x[myIndex].id == 2) // This will run if the image has an id of 2
+  {
+    setTimeout(carousel, 10000);
+  }
+  // Stop copy above this line
+  else // This is the standard wait time, if the image has no id.
+  {
+    setTimeout(carousel, 5000);
+  }
+}
+</script>
+
+</body>
+</html>
